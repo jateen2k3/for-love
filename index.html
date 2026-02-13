@@ -1,254 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Adyasha ❤️</title>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cream: #FFFDF5;
-            --rose: #D4A373;
-            --gold: #C5A059;
-            --text: #5F4B32;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Adyasha 💖</title>
 
-        body {
-            margin: 0;
-            background-color: var(--cream);
-            font-family: 'Quicksand', sans-serif;
-            color: var(--text);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: radial-gradient(circle at center, #fff 0%, var(--cream) 100%);
-        }
+<style>
+:root {
+    --cream: #fdf6ec;
+    --dusty-rose: #d8a7b1;
+    --soft-rose: #eac7cf;
+    --gold: #d4af37;
+}
 
-        .floating-heart {
-            font-size: 80px;
-            animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(0 10px 15px rgba(212, 163, 115, 0.3));
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.1); }
-        }
+body {
+    background: var(--cream);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    color: #4b3b40;
+}
 
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            color: var(--rose);
-            margin: 20px 0;
-        }
+/* Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 8s linear infinite;
+    opacity: 0.7;
+}
 
-        /* --- Accordion Section --- */
-        .reasons {
-            padding: 80px 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0.7; }
+    100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
 
-        .accordion {
-            border: 1px solid #eee;
-            border-radius: 15px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        }
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--cream), var(--soft-rose));
+    text-align: center;
+}
 
-        .acc-item { border-bottom: 1px solid #eee; }
-        .acc-header {
-            padding: 20px;
-            cursor: pointer;
-            font-weight: 500;
-            display: flex;
-            justify-content: space-between;
-            transition: 0.3s;
-        }
-        .acc-header:hover { background: #FAF9F6; color: var(--gold); }
-        .acc-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: 0.4s ease-out;
-            padding: 0 20px;
-            color: #888;
-            font-style: italic;
-        }
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--dusty-rose);
+    animation: fadeIn 2s ease forwards;
+}
 
-        /* --- Climax Section --- */
-        .climax {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .climax h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            color: var(--gold);
-            margin-bottom: 50px;
-        }
+/* Reasons Section */
+.reasons {
+    padding: 80px 20px;
+    text-align: center;
+}
 
-        .btn-wrap {
-            position: relative;
-            display: flex;
-            gap: 50px;
-            height: 100px;
-            align-items: center;
-        }
+.reasons h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--dusty-rose);
+}
 
-        .btn {
-            padding: 15px 45px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: 500;
-            transition: transform 0.2s, background 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+.accordion {
+    max-width: 700px;
+    margin: auto;
+}
 
-        #yesBtn {
-            background: var(--rose);
-            color: white;
-            z-index: 10;
-        }
+.accordion-item {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
 
-        #yesBtn:hover {
-            transform: scale(1.8); /* Grows super big */
-            background: #e6b382;
-        }
+.accordion-header {
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    background: var(--soft-rose);
+}
 
-        #noBtn {
-            background: #f0f0f0;
-            color: #999;
-            position: absolute;
-            transition: 0.1s;
-        }
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+    padding: 0 15px;
+}
 
-        /* --- Celebration Overlay --- */
-        #celebration {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(255, 253, 245, 0.98);
-            z-index: 1000;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+.accordion-content p {
+    padding: 15px 0;
+}
 
-        #stitch {
-            width: 280px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        }
+/* Proposal Section */
+.proposal {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--soft-rose), var(--cream));
+    text-align: center;
+    position: relative;
+}
 
-        .kiss-emoji {
-            position: fixed;
-            font-size: 2rem;
-            pointer-events: none;
-            z-index: 1001;
-            animation: fall 3s linear forwards;
-        }
+.proposal h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--dusty-rose);
+}
 
-        @keyframes fall {
-            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
-    </style>
+.buttons {
+    position: relative;
+}
+
+button {
+    padding: 15px 40px;
+    margin: 10px;
+    border: none;
+    border-radius: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: var(--gold);
+    color: white;
+}
+
+#yesBtn:hover {
+    transform: scale(1.2);
+}
+
+#noBtn {
+    background: #bbb;
+    color: white;
+    position: absolute;
+}
+
+/* Celebration */
+.celebration {
+    display: none;
+    text-align: center;
+    padding: 40px;
+}
+
+.celebration img {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.kisses {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+/* Confetti */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+</style>
 </head>
+
 <body>
 
-    <section class="hero">
-        <div class="floating-heart">❤️</div>
-        <h1>Hey Adyasha,<br>My Baby..My Motki...</h1>
-        <p style="letter-spacing: 2px; color: var(--gold);">SCROLL DOWN</p>
-    </section>
+<canvas id="confetti"></canvas>
 
-    <section class="reasons">
-        <div class="accordion">
-            <div class="acc-item">
-                <div class="acc-header" onclick="toggle(this)">Your Little Habits <span>▼</span></div>
-                <div class="acc-content"><p>The way you smile when you're shy is my favorite thing in the world.</p></div>
-            </div>
-            <div class="acc-item">
-                <div class="acc-header" onclick="toggle(this)">My Favorite Motki <span>▼</span></div>
-                <div class="acc-content"><p>Because no one else can pull off being this cute and annoying at the same time!</p></div>
-            </div>
-            <div class="acc-item">
-                <div class="acc-header" onclick="toggle(this)">Our Future <span>▼</span></div>
-                <div class="acc-content"><p>I can't wait to make a million more memories with you.</p></div>
-            </div>
+<!-- HERO -->
+<section class="hero">
+    <h1>Hey Adyasha,<br>My Baby.. My Motki... 💖</h1>
+</section>
+
+<!-- REASONS -->
+<section class="reasons">
+    <h2>Reasons Why I Love You 💕</h2>
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">Your Smile ✨</div>
+            <div class="accordion-content"><p>It lights up my darkest days and makes everything feel right.</p></div>
         </div>
-    </section>
-
-    <section class="climax">
-        <h2>Will you be my Valentine?</h2>
-        <div class="btn-wrap">
-            <button id="yesBtn" class="btn" onclick="celebrate()">YES!</button>
-            <button id="noBtn" class="btn">No</button>
+        <div class="accordion-item">
+            <div class="accordion-header">Your Heart 💗</div>
+            <div class="accordion-content"><p>You care so deeply and love so purely. It's beautiful.</p></div>
         </div>
-    </section>
+        <div class="accordion-item">
+            <div class="accordion-header">Your Cute Motki Energy 🥰</div>
+            <div class="accordion-content"><p>You make life playful, warm, and full of love.</p></div>
+        </div>
+    </div>
+</section>
 
-    <div id="celebration">
-        <img id="stitch" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpndmR4eWw4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/108M7gCS1JSoO4/giphy.gif" alt="Stitch Loves You">
-        <h1 style="font-size: 3rem;">I Knew It! ❤️</h1>
-        <p>I love you so much, Adyasha! 💋</p>
+<!-- PROPOSAL -->
+<section class="proposal">
+    <h2>Will You Be My Valentine? 💘</h2>
+    <div class="buttons">
+        <button id="yesBtn">YES 💖</button>
+        <button id="noBtn">No 🙈</button>
     </div>
 
-    <script>
-        // Accordion
-        function toggle(el) {
-            const content = el.nextElementSibling;
-            const isOpen = content.style.maxHeight;
-            document.querySelectorAll('.acc-content').forEach(c => c.style.maxHeight = null);
-            if (!isOpen) content.style.maxHeight = content.scrollHeight + "px";
-        }
+    <div class="celebration" id="celebration">
+        <h2>She Said YESSSSS!!! 💕🎉</h2>
+        <img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif" alt="Stitch">
+        <div class="kisses">💋💋💋💋💋💋💋💋💋💋</div>
+    </div>
+</section>
 
-        // Runaway Button
-        const noBtn = document.getElementById('noBtn');
-        noBtn.addEventListener('mouseover', () => {
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
-            noBtn.style.left = `${x}px`;
-            noBtn.style.top = `${y}px`;
+<script>
+// Floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 5 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+}
+setInterval(createHeart, 500);
+
+// Accordion logic
+document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+    });
+});
+
+// No button runs away
+const noBtn = document.getElementById("noBtn");
+document.addEventListener("mousemove", (e) => {
+    const rect = noBtn.getBoundingClientRect();
+    const distance = Math.hypot(e.clientX - rect.left, e.clientY - rect.top);
+    if (distance < 100) {
+        noBtn.style.top = Math.random() * 200 - 100 + "px";
+        noBtn.style.left = Math.random() * 200 - 100 + "px";
+    }
+});
+
+// Yes button celebration
+document.getElementById("yesBtn").addEventListener("click", () => {
+    document.getElementById("celebration").style.display = "block";
+    startConfetti();
+});
+
+// Confetti animation
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let confetti = [];
+
+function startConfetti() {
+    for(let i=0;i<200;i++){
+        confetti.push({
+            x: Math.random()*canvas.width,
+            y: Math.random()*canvas.height,
+            r: Math.random()*6+2,
+            d: Math.random()*50
         });
+    }
+    animateConfetti();
+}
 
-        // Celebration
-        function celebrate() {
-            document.getElementById('celebration').style.display = 'flex';
-            
-            // Confetti
-            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#D4A373', '#C5A059', '#ff0000'] });
+function animateConfetti() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    confetti.forEach(c => {
+        ctx.beginPath();
+        ctx.arc(c.x,c.y,c.r,0,Math.PI*2);
+        ctx.fillStyle = `hsl(${Math.random()*360},70%,60%)`;
+        ctx.fill();
+        c.y += 2;
+        if(c.y>canvas.height) c.y=0;
+    });
+    requestAnimationFrame(animateConfetti);
+}
+</script>
 
-            // Kiss Emoji Rain
-            for(let i=0; i<40; i++) {
-                setTimeout(() => {
-                    const kiss = document.createElement('div');
-                    kiss.className = 'kiss-emoji';
-                    kiss.innerText = '💋';
-                    kiss.style.left = Math.random() * 100 + 'vw';
-                    kiss.style.top = '-50px';
-                    document.body.appendChild(kiss);
-                    setTimeout(() => kiss.remove(), 3000);
-                }, i * 100);
-            }
-        }
-    </script>
 </body>
 </html>
