@@ -1,64 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Adyasha 🌌</title>
+<title>Adyasha ✨</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
     margin: 0;
     overflow: hidden;
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Poppins', sans-serif;
     color: white;
     text-align: center;
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a1a2e);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    position: relative;
+    top: 15vh;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.08);
+    padding: 40px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
-    margin-top: 80px;
-    font-size: 48px;
+    font-size: 42px;
+    margin-bottom: 10px;
     letter-spacing: 2px;
-    animation: glow 3s infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 8px #c084fc; }
-    to { text-shadow: 0 0 25px #a78bfa; }
 }
 
 .subtitle {
-    font-size: 20px;
-    width: 70%;
-    margin: auto;
-    line-height: 1.6;
+    font-size: 18px;
     opacity: 0.9;
-}
-
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    animation: twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle {
-    from { opacity: 0.3; }
-    to { opacity: 1; }
+    line-height: 1.6;
+    min-height: 60px;
 }
 
 button {
-    padding: 14px 28px;
+    margin: 20px;
+    padding: 12px 28px;
     font-size: 16px;
     border-radius: 30px;
     border: none;
-    margin: 25px;
     cursor: pointer;
     transition: 0.3s;
 }
 
 #yesBtn {
-    background: #a78bfa;
+    background: linear-gradient(45deg, #ff4d6d, #ff758f);
     color: white;
-    box-shadow: 0 0 15px #a78bfa;
+    box-shadow: 0 0 15px #ff4d6d;
 }
 
 #yesBtn:hover {
@@ -66,73 +75,100 @@ button {
 }
 
 #noBtn {
-    background: #444;
-    position: absolute;
+    background: #333;
     color: white;
+    position: absolute;
 }
 
 #finalMessage {
     display: none;
-    font-size: 22px;
-    width: 70%;
-    margin: 40px auto;
+    margin-top: 20px;
+    font-size: 18px;
     line-height: 1.8;
-    animation: fadeIn 2s forwards;
+    animation: fadeIn 2s ease forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.heart {
+    position: fixed;
+    font-size: 20px;
+    animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<h1>Adyasha</h1>
+<div class="container">
+    <h1>Adyasha</h1>
+    <div class="subtitle" id="typing"></div>
 
-<div class="subtitle">
-    Some people walk into your life quietly…  
-    and somehow change everything without trying.
-</div>
+    <h2>Will you be my Valentine?</h2>
 
-<h2 style="margin-top:40px;">Will you be my Valentine?</h2>
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
 
-<button id="yesBtn">Yes</button>
-<button id="noBtn">No</button>
-
-<div id="finalMessage">
-    I don’t promise a perfect story.  
-    I promise honesty, effort, laughter, and loyalty.  
-    <br><br>
-    I promise to choose you —  
-    not just today, but on the ordinary days too.  
-    <br><br>
-    If you’ll have me…  
-    I’d really like to call you mine.
+    <div id="finalMessage">
+        I don’t want something temporary.  
+        I want something intentional.  
+        <br><br>
+        I want late-night talks, random laughter,  
+        quiet comfort, and growing together.  
+        <br><br>
+        And I want all of that with you.
+    </div>
 </div>
 
 <script>
-/* Stars */
-for (let i = 0; i < 150; i++) {
-    let star = document.createElement("div");
-    star.className = "star";
-    star.style.left = Math.random()*100 + "vw";
-    star.style.top = Math.random()*100 + "vh";
-    star.style.animationDuration = (Math.random()*3+1) + "s";
-    document.body.appendChild(star);
-}
+const lines = [
+    "You didn’t just enter my life.",
+    "You became a part of it.",
+    "And somehow, everything feels different with you here."
+];
 
-/* No Button Escape */
+let i = 0, j = 0;
+let current = "";
+const typing = document.getElementById("typing");
+
+function typeEffect() {
+    if (j < lines[i].length) {
+        current += lines[i][j];
+        typing.innerHTML = current;
+        j++;
+        setTimeout(typeEffect, 40);
+    } else {
+        setTimeout(() => {
+            current = "";
+            j = 0;
+            i = (i + 1) % lines.length;
+            typeEffect();
+        }, 2000);
+    }
+}
+typeEffect();
+
+/* No button escape */
 const noBtn = document.getElementById("noBtn");
-noBtn.addEventListener("mouseover", function() {
-    noBtn.style.left = Math.random()*window.innerWidth + "px";
-    noBtn.style.top = Math.random()*window.innerHeight + "px";
+noBtn.addEventListener("mouseover", () => {
+    noBtn.style.left = Math.random() * 80 + "%";
+    noBtn.style.top = Math.random() * 80 + "%";
 });
 
-/* YES Click */
-document.getElementById("yesBtn").addEventListener("click", function(){
+/* Yes click */
+document.getElementById("yesBtn").addEventListener("click", () => {
     document.getElementById("finalMessage").style.display = "block";
+    for(let k=0;k<40;k++){
+        let heart = document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"vw";
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),5000);
+    }
 });
 </script>
 
