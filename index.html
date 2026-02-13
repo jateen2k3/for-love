@@ -1,174 +1,279 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Adyasha ✨</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Adyasha ❤️</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <style>
-body {
+:root {
+    --cream: #f8f4ef;
+    --dusty-rose: #d8a7b1;
+    --gold: #c6a75e;
+    --dark: #4a4a4a;
+}
+
+* {
     margin: 0;
-    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    color: white;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
-    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a1a2e);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.container {
     position: relative;
-    top: 15vh;
-    backdrop-filter: blur(15px);
-    background: rgba(255,255,255,0.08);
-    padding: 40px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--dusty-rose);
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* MEMORY SECTION */
+.section {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+.memory-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.memory-card {
+    width: 300px;
+    background: white;
     border-radius: 20px;
-    width: 80%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.4s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-10px);
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 200px;
+    background: #eee;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+/* ACCORDION */
+.accordion-item {
+    background: white;
+    margin: 15px auto;
     max-width: 600px;
-    margin: auto;
-    box-shadow: 0 0 40px rgba(0,0,0,0.5);
-    animation: fadeIn 2s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+.accordion-header {
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    background: var(--dusty-rose);
+    color: white;
 }
 
-h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 15px;
 }
 
-.subtitle {
-    font-size: 18px;
-    opacity: 0.9;
-    line-height: 1.6;
-    min-height: 60px;
+.accordion-content p {
+    padding: 15px 0;
+}
+
+/* FINAL SECTION */
+.final {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.final h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 40px;
+}
+
+.buttons {
+    position: relative;
 }
 
 button {
-    margin: 20px;
-    padding: 12px 28px;
-    font-size: 16px;
-    border-radius: 30px;
+    padding: 15px 30px;
+    border-radius: 50px;
     border: none;
+    font-size: 1rem;
     cursor: pointer;
-    transition: 0.3s;
+    margin: 10px;
+    transition: all 0.3s ease;
 }
 
-#yesBtn {
-    background: linear-gradient(45deg, #ff4d6d, #ff758f);
+.yes-btn {
+    background: var(--gold);
     color: white;
-    box-shadow: 0 0 15px #ff4d6d;
 }
 
-#yesBtn:hover {
-    transform: scale(1.1);
+.yes-btn:hover {
+    transform: scale(1.2);
 }
 
-#noBtn {
-    background: #333;
+.no-btn {
+    background: var(--dusty-rose);
     color: white;
     position: absolute;
 }
 
-#finalMessage {
+.celebration {
     display: none;
-    margin-top: 20px;
-    font-size: 18px;
-    line-height: 1.8;
-    animation: fadeIn 2s ease forwards;
-}
-
-.heart {
-    position: fixed;
-    font-size: 20px;
-    animation: floatUp 5s linear forwards;
-}
-
-@keyframes floatUp {
-    from { transform: translateY(100vh); opacity: 1; }
-    to { transform: translateY(-10vh); opacity: 0; }
+    font-size: 2rem;
+    margin-top: 30px;
+    color: var(--dusty-rose);
 }
 </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1>Adyasha</h1>
-    <div class="subtitle" id="typing"></div>
+<!-- HERO -->
+<section class="hero">
+    <h1>Hey Adyasha, I have a question... 💌</h1>
+</section>
 
-    <h2>Will you be my Valentine?</h2>
-
-    <button id="yesBtn">Yes</button>
-    <button id="noBtn">No</button>
-
-    <div id="finalMessage">
-        I don’t want something temporary.  
-        I want something intentional.  
-        <br><br>
-        I want late-night talks, random laughter,  
-        quiet comfort, and growing together.  
-        <br><br>
-        And I want all of that with you.
+<!-- MEMORY SECTION -->
+<section class="section">
+    <h2 style="font-family: Playfair Display; color: var(--gold); margin-bottom: 40px;">Our Little Journey ✨</h2>
+    <div class="memory-container">
+        <div class="memory-card">
+            <div class="photo-placeholder"></div>
+            <p>Our first unforgettable moment together ❤️</p>
+        </div>
+        <div class="memory-card">
+            <div class="photo-placeholder"></div>
+            <p>The day we laughed endlessly 😂</p>
+        </div>
+        <div class="memory-card">
+            <div class="photo-placeholder"></div>
+            <p>That memory I replay in my head every day ✨</p>
+        </div>
     </div>
-</div>
+</section>
+
+<!-- REASONS SECTION -->
+<section class="section">
+    <h2 style="font-family: Playfair Display; color: var(--gold); margin-bottom: 40px;">Reasons Why I Love You 💕</h2>
+
+    <div class="accordion-item">
+        <div class="accordion-header">Your Smile</div>
+        <div class="accordion-content"><p>It lights up my darkest days effortlessly.</p></div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header">Your Kind Heart</div>
+        <div class="accordion-content"><p>The way you care for others makes me admire you more each day.</p></div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header">Your Presence</div>
+        <div class="accordion-content"><p>Everything just feels better when you're around.</p></div>
+    </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+    <h2>Will you be my Valentine? 💖</h2>
+    <div class="buttons">
+        <button class="yes-btn">Yes 💘</button>
+        <button class="no-btn">No 🙈</button>
+    </div>
+    <div class="celebration">Yay! See you on the 14th! ❤️</div>
+</section>
 
 <script>
-const lines = [
-    "You didn’t just enter my life.",
-    "You became a part of it.",
-    "And somehow, everything feels different with you here."
-];
-
-let i = 0, j = 0;
-let current = "";
-const typing = document.getElementById("typing");
-
-function typeEffect() {
-    if (j < lines[i].length) {
-        current += lines[i][j];
-        typing.innerHTML = current;
-        j++;
-        setTimeout(typeEffect, 40);
-    } else {
-        setTimeout(() => {
-            current = "";
-            j = 0;
-            i = (i + 1) % lines.length;
-            typeEffect();
-        }, 2000);
-    }
+/* Floating Hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("floating-heart");
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
 }
-typeEffect();
+setInterval(createHeart, 800);
 
-/* No button escape */
-const noBtn = document.getElementById("noBtn");
-noBtn.addEventListener("mouseover", () => {
-    noBtn.style.left = Math.random() * 80 + "%";
-    noBtn.style.top = Math.random() * 80 + "%";
+/* Accordion */
+document.querySelectorAll(".accordion-header").forEach(item => {
+    item.addEventListener("click", () => {
+        const content = item.nextElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+    });
 });
 
-/* Yes click */
-document.getElementById("yesBtn").addEventListener("click", () => {
-    document.getElementById("finalMessage").style.display = "block";
-    for(let k=0;k<40;k++){
-        let heart = document.createElement("div");
-        heart.className="heart";
-        heart.innerHTML="❤️";
-        heart.style.left=Math.random()*100+"vw";
-        document.body.appendChild(heart);
-        setTimeout(()=>heart.remove(),5000);
+/* No Button Run Away */
+const noBtn = document.querySelector(".no-btn");
+document.addEventListener("mousemove", function(e) {
+    const rect = noBtn.getBoundingClientRect();
+    if (
+        e.clientX > rect.left - 50 &&
+        e.clientX < rect.right + 50 &&
+        e.clientY > rect.top - 50 &&
+        e.clientY < rect.bottom + 50
+    ) {
+        noBtn.style.top = Math.random() * 200 + "px";
+        noBtn.style.left = Math.random() * 200 + "px";
     }
+});
+
+/* Yes Button Celebration */
+document.querySelector(".yes-btn").addEventListener("click", () => {
+    confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
+    document.querySelector(".celebration").style.display = "block";
 });
 </script>
 
