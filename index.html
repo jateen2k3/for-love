@@ -1,281 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Adyasha ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Adyasha ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;500&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        :root {
+            --cream: #FFFDF5;
+            --dusty-rose: #D4A373; /* Sophisticated rose-gold tone */
+            --soft-pink: #E9EDC9;
+            --gold: #BC6C25;
+            --text-color: #5F4B32;
+        }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
 
-<style>
-:root {
-    --cream: #f8f4ef;
-    --dusty-rose: #d8a7b1;
-    --gold: #c6a75e;
-    --dark: #4a4a4a;
-}
+        .floating-heart {
+            font-size: 80px;
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 15px rgba(212, 163, 115, 0.4));
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
 
-body {
-    background: var(--cream);
-    color: var(--dark);
-    overflow-x: hidden;
-}
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--dusty-rose);
+            margin: 0;
+        }
 
-/* HERO SECTION */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-}
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: var(--dusty-rose);
-}
+        /* --- Reasons Section --- */
+        .reasons-section {
+            padding: 100px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-.floating-heart {
-    position: absolute;
-    font-size: 2rem;
-    animation: floatUp 6s linear infinite;
-    opacity: 0.7;
-}
+        .section-title {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 40px;
+        }
 
-@keyframes floatUp {
-    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-}
+        .accordion-item {
+            background: white;
+            border: 1px solid #f0e6d2;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
 
-/* MEMORY SECTION */
-.section {
-    padding: 100px 10%;
-    text-align: center;
-}
+        .accordion-header {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            background: #fff;
+            transition: background 0.3s;
+        }
 
-.memory-container {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+        .accordion-header:hover {
+            background: #faf7f0;
+        }
 
-.memory-card {
-    width: 300px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    padding: 20px;
-    transition: transform 0.4s ease;
-}
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+            background: #fff;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #777;
+        }
 
-.memory-card:hover {
-    transform: translateY(-10px);
-}
+        /* --- Climax Section --- */
+        .climax {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--cream), #fdf2e9);
+        }
 
-.photo-placeholder {
-    width: 100%;
-    height: 200px;
-    background: #eee;
-    border-radius: 15px;
-    margin-bottom: 15px;
-}
+        .climax h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--dusty-rose);
+            margin-bottom: 50px;
+        }
 
-/* ACCORDION */
-.accordion-item {
-    background: white;
-    margin: 15px auto;
-    max-width: 600px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
+        .btn-container {
+            position: relative;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            min-height: 150px;
+            width: 100%;
+            justify-content: center;
+        }
 
-.accordion-header {
-    padding: 15px;
-    cursor: pointer;
-    font-weight: 600;
-    background: var(--dusty-rose);
-    color: white;
-}
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
 
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    padding: 0 15px;
-}
+        #yesBtn {
+            background-color: var(--dusty-rose);
+            color: white;
+        }
 
-.accordion-content p {
-    padding: 15px 0;
-}
+        #yesBtn:hover {
+            transform: scale(1.5); /* Grows larger */
+            background-color: var(--gold);
+        }
 
-/* FINAL SECTION */
-.final {
-    text-align: center;
-    padding: 100px 20px;
-}
+        #noBtn {
+            background-color: #eee;
+            color: #888;
+            position: absolute;
+            z-index: 10;
+        }
 
-.final h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: var(--gold);
-    margin-bottom: 40px;
-}
+        /* --- Success Message --- */
+        #success-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 253, 245, 0.95);
+            z-index: 100;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-.buttons {
-    position: relative;
-}
+        #stitch-img {
+            width: 250px;
+            margin-bottom: 20px;
+        }
 
-button {
-    padding: 15px 30px;
-    border-radius: 50px;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    margin: 10px;
-    transition: all 0.3s ease;
-}
-
-.yes-btn {
-    background: var(--gold);
-    color: white;
-}
-
-.yes-btn:hover {
-    transform: scale(1.2);
-}
-
-.no-btn {
-    background: var(--dusty-rose);
-    color: white;
-    position: absolute;
-}
-
-.celebration {
-    display: none;
-    font-size: 2rem;
-    margin-top: 30px;
-    color: var(--dusty-rose);
-}
-</style>
+        .success-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--dusty-rose);
+        }
+    </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>Hey Adyasha, I have a question... 💌</h1>
-</section>
+    <section class="hero">
+        <div class="floating-heart">❤️</div>
+        <h1>Hey Adyasha, my baby...</h1>
+        <p>My motki, I have something to ask you.</p>
+        <p style="font-size: 0.8rem; margin-top: 40px;">(Scroll down)</p>
+    </section>
 
-<!-- MEMORY SECTION -->
-<section class="section">
-    <h2 style="font-family: Playfair Display; color: var(--gold); margin-bottom: 40px;">Our Little Journey ✨</h2>
-    <div class="memory-container">
-        <div class="memory-card">
-            <div class="photo-placeholder"></div>
-            <p>Our first unforgettable moment together ❤️</p>
+    <section class="reasons-section">
+        <h2 class="section-title">Why I Love You</h2>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">Your Beautiful Smile <span>+</span></div>
+            <div class="accordion-content"><p>It lights up my entire world, even on the hardest days.</p></div>
         </div>
-        <div class="memory-card">
-            <div class="photo-placeholder"></div>
-            <p>The day we laughed endlessly 😂</p>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">Your Kind Heart <span>+</span></div>
+            <div class="accordion-content"><p>The way you care for people (and how you deal with me!) is truly amazing.</p></div>
         </div>
-        <div class="memory-card">
-            <div class="photo-placeholder"></div>
-            <p>That memory I replay in my head every day ✨</p>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">Our Inside Jokes <span>+</span></div>
+            <div class="accordion-content"><p>Because nobody else gets us, and I wouldn't have it any other way, my motki.</p></div>
         </div>
+    </section>
+
+    <section class="climax">
+        <h2>Will you be my Valentine?</h2>
+        <div class="btn-container">
+            <button id="yesBtn" class="btn" onclick="celebrate()">YES!</button>
+            <button id="noBtn" class="btn">No</button>
+        </div>
+    </section>
+
+    <div id="success-overlay">
+        <img id="stitch-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpndmR4eWw4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/108M7gCS1JSoO4/giphy.gif" alt="Disney Stitch Heart">
+        <div class="success-text">Yay! Best Valentine Ever! ❤️</div>
+        <p>I love you, Adyasha!</p>
     </div>
-</section>
 
-<!-- REASONS SECTION -->
-<section class="section">
-    <h2 style="font-family: Playfair Display; color: var(--gold); margin-bottom: 40px;">Reasons Why I Love You 💕</h2>
+    <script>
+        // Accordion Logic
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isOpen = content.style.maxHeight;
+            
+            document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+            
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
 
-    <div class="accordion-item">
-        <div class="accordion-header">Your Smile</div>
-        <div class="accordion-content"><p>It lights up my darkest days effortlessly.</p></div>
-    </div>
+        // Runaway Button Logic
+        const noBtn = document.getElementById('noBtn');
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        });
 
-    <div class="accordion-item">
-        <div class="accordion-header">Your Kind Heart</div>
-        <div class="accordion-content"><p>The way you care for others makes me admire you more each day.</p></div>
-    </div>
+        // Celebration Logic
+        function celebrate() {
+            // Trigger Confetti
+            var duration = 5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
-    <div class="accordion-item">
-        <div class="accordion-header">Your Presence</div>
-        <div class="accordion-content"><p>Everything just feels better when you're around.</p></div>
-    </div>
-</section>
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
 
-<!-- FINAL -->
-<section class="final">
-    <h2>Will you be my Valentine? 💖</h2>
-    <div class="buttons">
-        <button class="yes-btn">Yes 💘</button>
-        <button class="no-btn">No 🙈</button>
-    </div>
-    <div class="celebration">Yay! See you on the 14th! ❤️</div>
-</section>
+            var interval = setInterval(function() {
+              var timeLeft = animationEnd - Date.now();
 
-<script>
-/* Floating Hearts */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("floating-heart");
-    heart.innerText = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeart, 800);
+              if (timeLeft <= 0) {
+                return clearInterval(interval);
+              }
 
-/* Accordion */
-document.querySelectorAll(".accordion-header").forEach(item => {
-    item.addEventListener("click", () => {
-        const content = item.nextElementSibling;
-        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
-    });
-});
+              var particleCount = 50 * (timeLeft / duration);
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
 
-/* No Button Run Away */
-const noBtn = document.querySelector(".no-btn");
-document.addEventListener("mousemove", function(e) {
-    const rect = noBtn.getBoundingClientRect();
-    if (
-        e.clientX > rect.left - 50 &&
-        e.clientX < rect.right + 50 &&
-        e.clientY > rect.top - 50 &&
-        e.clientY < rect.bottom + 50
-    ) {
-        noBtn.style.top = Math.random() * 200 + "px";
-        noBtn.style.left = Math.random() * 200 + "px";
-    }
-});
-
-/* Yes Button Celebration */
-document.querySelector(".yes-btn").addEventListener("click", () => {
-    confetti({
-        particleCount: 200,
-        spread: 100,
-        origin: { y: 0.6 }
-    });
-    document.querySelector(".celebration").style.display = "block";
-});
-</script>
-
+            // Show Stitch and Success Message
+            document.getElementById('success-overlay').style.display = 'flex';
+        }
+    </script>
 </body>
 </html>
