@@ -1,21 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Princess Adyasha 👑</title>
-
+<title>Adyasha 🌌</title>
 <style>
 body {
     margin: 0;
-    padding: 0;
     overflow: hidden;
     font-family: 'Georgia', serif;
-    background: radial-gradient(circle at bottom, #1b2735, #090a0f);
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     color: white;
     text-align: center;
 }
 
-/* Stars */
+h1 {
+    margin-top: 80px;
+    font-size: 48px;
+    letter-spacing: 2px;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 8px #c084fc; }
+    to { text-shadow: 0 0 25px #a78bfa; }
+}
+
+.subtitle {
+    font-size: 20px;
+    width: 70%;
+    margin: auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
 .star {
     position: absolute;
     width: 2px;
@@ -25,73 +41,42 @@ body {
 }
 
 @keyframes twinkle {
-    from { opacity: 0.2; }
+    from { opacity: 0.3; }
     to { opacity: 1; }
 }
 
-/* Title */
-h1 {
-    margin-top: 80px;
-    font-size: 45px;
-    text-shadow: 0 0 20px gold;
-}
-
-/* Romantic Text */
-#typingText {
-    font-size: 22px;
-    font-style: italic;
-    width: 70%;
-    margin: auto;
-    min-height: 60px;
-}
-
-/* Floating Heart */
-.heart {
-    position: absolute;
-    font-size: 20px;
-    animation: floatUp 6s linear infinite;
-}
-
-@keyframes floatUp {
-    from { transform: translateY(100vh); opacity: 1; }
-    to { transform: translateY(-10vh); opacity: 0; }
-}
-
-/* Buttons */
 button {
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 40px;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 30px;
     border: none;
-    margin: 20px;
+    margin: 25px;
     cursor: pointer;
     transition: 0.3s;
 }
 
 #yesBtn {
-    background: gold;
-    box-shadow: 0 0 20px gold;
+    background: #a78bfa;
+    color: white;
+    box-shadow: 0 0 15px #a78bfa;
 }
 
 #yesBtn:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 #noBtn {
-    background: crimson;
+    background: #444;
     position: absolute;
+    color: white;
 }
 
-/* Love Letter Scroll */
-#letter {
+#finalMessage {
     display: none;
-    width: 60%;
-    margin: auto;
-    margin-top: 30px;
-    background: rgba(255,255,255,0.1);
-    padding: 20px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
+    font-size: 22px;
+    width: 70%;
+    margin: 40px auto;
+    line-height: 1.8;
     animation: fadeIn 2s forwards;
 }
 
@@ -99,56 +84,37 @@ button {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-/* Ring Animation */
-#ring {
-    display: none;
-    font-size: 60px;
-    animation: glow 1s infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px gold; }
-    to { text-shadow: 0 0 30px gold; }
-}
 </style>
 </head>
 
 <body>
 
-<h1>Princess Adyasha 👑✨</h1>
-<div id="typingText"></div>
+<h1>Adyasha</h1>
 
-<h2>Will you be my Valentine? 💖</h2>
-
-<button id="yesBtn">Yes, My Love 💕</button>
-<button id="noBtn">No 😜</button>
-
-<div id="ring">💍</div>
-
-<div id="letter">
-    My Dearest Adyasha 💙<br><br>
-    From the moment you walked into my life,  
-    everything felt softer… brighter… magical. ✨  
-    <br><br>
-    You are the calm in my chaos,  
-    the smile behind my toughest days,  
-    and the dream I never want to wake up from. 🌙  
-    <br><br>
-    If life is a fairytale…  
-    I want every chapter to be written with you.  
-    <br><br>
-    So today, tomorrow, and forever —  
-    will you be mine? 💖
+<div class="subtitle">
+    Some people walk into your life quietly…  
+    and somehow change everything without trying.
 </div>
 
-<audio autoplay loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4f68b4f2fd.mp3">
-</audio>
+<h2 style="margin-top:40px;">Will you be my Valentine?</h2>
+
+<button id="yesBtn">Yes</button>
+<button id="noBtn">No</button>
+
+<div id="finalMessage">
+    I don’t promise a perfect story.  
+    I promise honesty, effort, laughter, and loyalty.  
+    <br><br>
+    I promise to choose you —  
+    not just today, but on the ordinary days too.  
+    <br><br>
+    If you’ll have me…  
+    I’d really like to call you mine.
+</div>
 
 <script>
-/* Generate Stars */
-for (let i = 0; i < 120; i++) {
+/* Stars */
+for (let i = 0; i < 150; i++) {
     let star = document.createElement("div");
     star.className = "star";
     star.style.left = Math.random()*100 + "vw";
@@ -156,46 +122,6 @@ for (let i = 0; i < 120; i++) {
     star.style.animationDuration = (Math.random()*3+1) + "s";
     document.body.appendChild(star);
 }
-
-/* Typing Romantic Lines */
-const lines = [
-    "In a world full of stars, you shine the brightest ✨",
-    "You are my favorite notification 💌",
-    "You are my peace, my happiness, my always 💙",
-    "Every love story is beautiful... but ours is my favorite 💖"
-];
-
-let lineIndex = 0;
-let charIndex = 0;
-let currentLine = "";
-const typingDiv = document.getElementById("typingText");
-
-function typeLine() {
-    if (charIndex < lines[lineIndex].length) {
-        currentLine += lines[lineIndex][charIndex];
-        typingDiv.innerHTML = currentLine;
-        charIndex++;
-        setTimeout(typeLine, 50);
-    } else {
-        setTimeout(() => {
-            currentLine = "";
-            charIndex = 0;
-            lineIndex = (lineIndex + 1) % lines.length;
-            typeLine();
-        }, 2000);
-    }
-}
-typeLine();
-
-/* Floating Hearts */
-setInterval(() => {
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random()*100 + "vw";
-    document.body.appendChild(heart);
-    setTimeout(()=> heart.remove(), 6000);
-}, 800);
 
 /* No Button Escape */
 const noBtn = document.getElementById("noBtn");
@@ -206,8 +132,7 @@ noBtn.addEventListener("mouseover", function() {
 
 /* YES Click */
 document.getElementById("yesBtn").addEventListener("click", function(){
-    document.getElementById("ring").style.display = "block";
-    document.getElementById("letter").style.display = "block";
+    document.getElementById("finalMessage").style.display = "block";
 });
 </script>
 
